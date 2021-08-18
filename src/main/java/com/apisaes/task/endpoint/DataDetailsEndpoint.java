@@ -23,6 +23,6 @@ public class DataDetailsEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "DataDetails")
     @ResponsePayload
     public DataDetails getData(@RequestPayload DataDetails request) {
-        return dataDetailsRepository.findDataDetailsByOperationId("1");
+        return dataDetailsRepository.findById("1");
     }
 }

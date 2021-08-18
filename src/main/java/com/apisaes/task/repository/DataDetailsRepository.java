@@ -4,11 +4,14 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import hr.aaa.test.v0.datadetails.*;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -87,11 +90,8 @@ public class DataDetailsRepository {
         saveDataDetails(DataDetails2);
     }
 
-    public DataDetails findDataDetailsByOperationId(String id) {
-        return dataDetailsMap.get(id);
-    }
 
-    public DataDetails saveDataDetails(DataDetails DataDetails){
+    public DataDetails saveDataDetails(DataDetails DataDetails) {
         dataDetailsMap.put(
                 (idCounter++).toString(),
                 DataDetails
@@ -99,4 +99,28 @@ public class DataDetailsRepository {
         return DataDetails;
     }
 
+
+    public List<DataDetails> findAllDataDetails() {
+        return new ArrayList<>(dataDetailsMap.values());
+    }
+
+    public DataDetails findById(String id) {
+        return dataDetailsMap.get(id);
+    }
+
+    public List<DataDetails> findAllByOperationId(String id) {
+        Assert.notNull(id, "The operation ID must not be null");
+
+        List<DataDetails> dataDetailsList = new ArrayList<>();
+
+        dataDetailsMap.values().forEach(dd -> {
+            if (dd.getData().getOperation().getID().equals(id)) {
+                dataDetailsList.add(dd);
+            }
+        });
+
+        if (dataDetailsList.size() == 0)
+            return null;
+        return dataDetailsList;
+    }
 }
