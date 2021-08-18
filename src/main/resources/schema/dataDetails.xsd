@@ -10,23 +10,20 @@
     <xs:import namespace="http://aaa.hr/test/v0/simpleTypes" schemaLocation="./simpleSchema.xsd"/>
     <!--===== IMPORTS =====-->
 
-    <xs:element name="testRequest">
-
-    </xs:element>
-
     <!--==========================================================-->
     <!--===== Root Element                                        -->
     <!--==========================================================-->
-    <xs:element name="DataDetails" type="DataDetailsType"/>
+    <xs:element name="DataDetails">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Data" type="DataType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <!--==========================================================-->
     <!--===== Root Element Content                                -->
     <!--==========================================================-->
-    <xs:complexType name="DataDetailsType">
-        <xs:sequence>
-            <xs:element name="Data" type="DataType"/>
-        </xs:sequence>
-    </xs:complexType>
 
     <xs:complexType name="DataType">
         <xs:sequence>
