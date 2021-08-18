@@ -18,7 +18,7 @@ import javax.xml.datatype.DatatypeFactory;
 public class DataDetailsRepository {
 
     private static Long idCounter = 1L;
-    private static final Map<String, DataDetailsType> dataDetailsMap = new HashMap<>();
+    private static final Map<String, DataDetails> dataDetailsMap = new HashMap<>();
 
     @PostConstruct
     public void initData() throws DatatypeConfigurationException {
@@ -76,27 +76,27 @@ public class DataDetailsRepository {
         dataType2.setAccountValue(BigDecimal.valueOf(2000));
 
         // DATA DETAILS
-        DataDetailsType dataDetailsType1 = new DataDetailsType();
-        dataDetailsType1.setData(dataType1);
+        DataDetails DataDetails1 = new DataDetails();
+        DataDetails1.setData(dataType1);
 
-        saveDataDetails(dataDetailsType1);
+        saveDataDetails(DataDetails1);
 
-        DataDetailsType dataDetailsType2 = new DataDetailsType();
-        dataDetailsType2.setData(dataType2);
+        DataDetails DataDetails2 = new DataDetails();
+        DataDetails2.setData(dataType2);
 
-        saveDataDetails(dataDetailsType2);
+        saveDataDetails(DataDetails2);
     }
 
-    public DataDetailsType findDataDetailsByOperationId(String id) {
+    public DataDetails findDataDetailsByOperationId(String id) {
         return dataDetailsMap.get(id);
     }
 
-    public DataDetailsType saveDataDetails(DataDetailsType dataDetailsType){
+    public DataDetails saveDataDetails(DataDetails DataDetails){
         dataDetailsMap.put(
                 (idCounter++).toString(),
-                dataDetailsType
+                DataDetails
         );
-        return dataDetailsType;
+        return DataDetails;
     }
 
 }

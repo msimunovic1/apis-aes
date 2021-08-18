@@ -1,7 +1,7 @@
 package com.apisaes.task.endpoint;
 
 import com.apisaes.task.repository.DataDetailsRepository;
-import hr.aaa.test.v0.datadetails.DataDetailsType;
+import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -22,7 +22,7 @@ public class DataDetailsEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "DataDetails")
     @ResponsePayload
-    public DataDetailsType getData(@RequestPayload DataDetailsType request) {
-        return dataDetailsRepository.findDataDetailsByOperationId(request.getData().getOperation().getID());
+    public DataDetails getData(@RequestPayload DataDetails request) {
+        return dataDetailsRepository.findDataDetailsByOperationId("1");
     }
 }

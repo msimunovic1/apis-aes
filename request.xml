@@ -10,22 +10,24 @@
                     <dd:storingFlag>0</dd:storingFlag>
                     <dd:type>65754</dd:type>
                     <dd:additionalType>A</dd:additionalType>
-                    <dd:acceptanceDate>2022-01-01T00:00:00</dd:acceptanceDate>
+                    <dd:acceptanceDate>2022-01-01</dd:acceptanceDate>
                 </dd:Operation>
                 <dd:Origin>
-                    <dd:referenceNumber>12345678</dd:referenceNumber>
+                    <dd:referenceNumber>CUA1A2A3</dd:referenceNumber>
                 </dd:Origin>
                 <dd:Destination>
-                    <dd:referenceNumber>87654321</dd:referenceNumber>
+                    <dd:referenceNumber>CUB1B2B3</dd:referenceNumber>
                 </dd:Destination>
-                <dd:DateOfStart>2022-01-01T00:00:00</dd:DateOfStart>
+                <dd:DateOfStart>2022-01-01</dd:DateOfStart>
                 <dd:AccountValue>400.00</dd:AccountValue>
                 <dd:Exporter>
-                    <dd:referenceNumber>12345678</dd:referenceNumber>
+                    <dd:referenceNumber>CUC1C2C3</dd:referenceNumber>
                 </dd:Exporter>
                 <dd:VisitingLocations>
-                    <dd:referenceNumber>12345678</dd:referenceNumber>
-                    <dd:referenceNumber>87654321</dd:referenceNumber>
+                    <dd:referenceNumber>CUA1A2A3</dd:referenceNumber>
+                </dd:VisitingLocations>
+                <dd:VisitingLocations>
+                    <referenceNumber>CUA1A2A3</referenceNumber>
                 </dd:VisitingLocations>
             </dd:Data>
         </dd:DataDetails>
