@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>New DataDetails</title>
+</head>
+<body>
+
+<h1>Create DataDetails</h1>
+
+<form action="#" th:action="@{/datadetails/new}" th:object="${dataDetails}" method="post">
+    <p>Origin:
+        <input type="text" th:field="*{data.origin.referenceNumber}"/></p>
+    <p>Destination:
+        <input type="text" th:field="*{data.destination.referenceNumber}"/></p>
+    <p>
+        <input type="submit" value="Create"/>
+    </p>
+</form>
+</body>
+</html>

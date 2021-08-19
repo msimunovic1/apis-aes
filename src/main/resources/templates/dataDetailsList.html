@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Details List</title>
+</head>
+<body>
+
+<h1>Data Details List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Office origin</th>
+        <th>Office destination</th>
+        <th>Date of start</th>
+        <th>Account value</th>
+        <th>Exporter</th>
+        <th>Operation ID</th>
+        <th>Arrival date</th>
+        <th>Acceptance date</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="dataDetail: ${listDataDetails}">
+            <td th:text="${dataDetail.data.origin.referenceNumber}">-</td>
+            <td th:text="${dataDetail.data.destination.referenceNumber}">-</td>
+            <td th:text="${dataDetail.data.dateOfStart.toString()}">-</td>
+            <td th:text="${dataDetail.data.accountValue}">-</td>
+            <td th:text="${dataDetail.data.exporter.referenceNumber}">-</td>
+            <td th:text="${dataDetail.data.operation.ID}">-</td>
+            <td th:text="${dataDetail.data.operation.arrivalDateTime.toString()}">-</td>
+            <td th:text="${dataDetail.data.operation.acceptanceDate.toString()}">-</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

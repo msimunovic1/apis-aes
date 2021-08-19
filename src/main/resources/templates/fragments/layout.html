@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:fragment="layout (template)">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../static/styles/cssandjs/main.css"
+          th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="sidebar">
+    <header>APIS AES</header>
+    <ul>
+        <li><a href="#" th:href="@{/}">Dashboard</a></li>
+        <li><a href="#" th:href="@{/datadetails}">List of DataDetails</a></li>
+        <li><a href="#" th:href="@{/datadetails/new}">Create DataDetails</a></li>
+    </ul>
+</div>
+<div class="content">
+    <th:block th:include="${template}"/>
+</div>
+</body>
+</html>
