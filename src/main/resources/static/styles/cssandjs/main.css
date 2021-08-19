@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
-*{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-decoration: none;
-}
 
 body{
+    margin: 0;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -21,7 +16,18 @@ h1, h2 {
     height: 100%;
     background: #042331;
     transition: all .5s ease;
+
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
 }
+
+.sidebar *{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
 .sidebar header {
     font-size: 22px;
     color: white;
@@ -30,6 +36,11 @@ h1, h2 {
     background: #063146;
     user-select: none;
 }
+
+.sidebar ul {
+    list-style: none;
+}
+
 .sidebar ul a{
     display: block;
     height: 100%;
@@ -53,13 +64,46 @@ ul li:hover a{
 }
 
 .content{
-    position: fixed;
+    position: absolute;
     left: 20%;  /*280px;*/
     padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 th, td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+form {
+    width: 100%;
+}
+
+form *{
+    padding-top: 0.5em;
+}
+
+input[type=text], input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #042331;
+    border-radius: 4px;
+}
+
+input[type=text]:focus {
+    background-color: #b7dbff;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #042331;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    border-radius: 4px;
+    cursor: pointer;
 }

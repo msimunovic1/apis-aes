@@ -9,10 +9,35 @@
 <h1>Create DataDetails</h1>
 
 <form action="#" th:action="@{/datadetails/new}" th:object="${dataDetails}" method="post">
-    <p>Origin:
+    <h3>Operation</h3>
+    <p>ID:
+        <input type="text" th:field="*{data.operation.ID}"/></p>
+    <p>Arrival Date:
+        <input type="date" th:field="*{data.operation.arrivalDateTime}"/></p>
+    <p>Acceptance Date:
+        <input type="date" th:attr="min=${now}" th:field="*{data.operation.acceptanceDate}"/></p>
+    <p>Storing Flag:
+        <input type="text" th:field="*{data.operation.storingFlag}"/></p>
+    <p>Type:
+        <input type="text" th:field="*{data.operation.type}"/></p>
+    <p>Additional Type:
+        <input type="text" th:field="*{data.operation.additionalType}"/></p>
+
+    <h3>Origin</h3>
+    <p>Reference number:
         <input type="text" th:field="*{data.origin.referenceNumber}"/></p>
-    <p>Destination:
+    <h3>Destination</h3>
+    <p>Reference number:
         <input type="text" th:field="*{data.destination.referenceNumber}"/></p>
+    <h3>Exporter</h3>
+    <p>Reference number:
+        <input type="text" th:field="*{data.exporter.referenceNumber}"/></p>
+
+    <br>
+    <p>Date of Start:
+        <input type="date" th:attr="min=${now}" th:field="*{data.dateOfStart}"/></p>
+    <p>Account Value:
+        <input type="text" th:field="*{data.accountValue}"/></p>
     <p>
         <input type="submit" value="Create"/>
     </p>

@@ -6,11 +6,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping("/datadetails")
 public class DataDetailsController {
 
     private final DataDetailsService dataDetailsService;
+
+    @ModelAttribute("now")
+    public LocalDate currentTime(){
+        LocalDate now = LocalDate.now();
+        return now;
+    }
 
     public DataDetailsController(DataDetailsService dataDetailsService) {
         this.dataDetailsService = dataDetailsService;
