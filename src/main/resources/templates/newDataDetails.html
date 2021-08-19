@@ -10,34 +10,64 @@
 
 <form action="#" th:action="@{/datadetails/new}" th:object="${dataDetails}" method="post">
     <h3>Operation</h3>
+
+    <p th:if="${#fields.hasErrors('data.operation.ID')}" th:errors="*{data.operation.ID}"></p>
     <p>ID:
-        <input type="text" th:field="*{data.operation.ID}"/></p>
+        <input type="text"
+               th:field="*{data.operation.ID}"
+               th:default="${defaultDataDetails.data.operation.ID}"/></p>
+
+    <p th:if="${#fields.hasErrors('data.operation.arrivalDateTime')}" th:errors="*{data.operation.arrivalDateTime}"></p>
     <p>Arrival Date:
-        <input type="date" th:field="*{data.operation.arrivalDateTime}"/></p>
+        <input type="text"
+               th:field="*{data.operation.arrivalDateTime}"
+               th:default="${defaultDataDetails.data.operation.arrivalDateTime}"/></p>
+
+    <p th:if="${#fields.hasErrors('data.operation.acceptanceDate')}" th:errors="*{data.operation.acceptanceDate}"></p>
     <p>Acceptance Date:
-        <input type="date" th:attr="min=${now}" th:field="*{data.operation.acceptanceDate}"/></p>
+        <input type="text"
+               th:attr="min=${now}"
+               th:field="*{data.operation.acceptanceDate}"
+               th:default="${defaultDataDetails.data.operation.acceptanceDate.toString()}"/></p>
     <p>Storing Flag:
-        <input type="text" th:field="*{data.operation.storingFlag}"/></p>
+        <input type="text"
+               th:field="*{data.operation.storingFlag}"
+               th:default="${defaultDataDetails.data.operation.storingFlag}"/></p>
     <p>Type:
-        <input type="text" th:field="*{data.operation.type}"/></p>
+        <input type="text"
+               th:field="*{data.operation.type}"
+               th:default="${defaultDataDetails.data.operation.type}"/></p>
     <p>Additional Type:
-        <input type="text" th:field="*{data.operation.additionalType}"/></p>
+        <input type="text"
+               th:field="*{data.operation.additionalType}"
+               th:default="${defaultDataDetails.data.operation.additionalType}"/></p>
 
     <h3>Origin</h3>
     <p>Reference number:
-        <input type="text" th:field="*{data.origin.referenceNumber}"/></p>
+        <input type="text"
+               th:field="*{data.origin.referenceNumber}"
+               th:default="${defaultDataDetails.data.origin.referenceNumber}"/></p>
     <h3>Destination</h3>
     <p>Reference number:
-        <input type="text" th:field="*{data.destination.referenceNumber}"/></p>
+        <input type="text"
+               th:field="*{data.destination.referenceNumber}"
+               th:default="${defaultDataDetails.data.destination.referenceNumber}"/></p>
     <h3>Exporter</h3>
     <p>Reference number:
-        <input type="text" th:field="*{data.exporter.referenceNumber}"/></p>
+        <input type="text"
+               th:field="*{data.exporter.referenceNumber}"
+               th:default="${defaultDataDetails.data.exporter.referenceNumber}"/></p>
 
     <br>
+    <p th:if="${#fields.hasErrors('data.dateOfStart')}" th:errors="*{data.dateOfStart}"></p>
     <p>Date of Start:
-        <input type="date" th:attr="min=${now}" th:field="*{data.dateOfStart}"/></p>
+        <input type="text"
+               th:field="*{data.dateOfStart}"
+               th:default="${defaultDataDetails.data.dateOfStart}"/></p>
     <p>Account Value:
-        <input type="text" th:field="*{data.accountValue}"/></p>
+        <input type="text"
+               th:field="*{data.accountValue}"
+               th:default="${defaultDataDetails.data.accountValue}"/></p>
     <p>
         <input type="submit" value="Create"/>
     </p>

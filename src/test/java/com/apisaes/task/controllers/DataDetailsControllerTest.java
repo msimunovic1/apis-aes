@@ -44,6 +44,7 @@ class DataDetailsControllerTest {
         controller = new DataDetailsController(dataDetailsService);
     }
 
+    @Disabled
     @Test
     public void testMockMVC() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
@@ -54,6 +55,7 @@ class DataDetailsControllerTest {
     }
 
 
+    @Disabled
     @Test
     void listDataDetails() {
         //given
@@ -79,6 +81,7 @@ class DataDetailsControllerTest {
         assertEquals(2, listInController.size());
     }
 
+    @Disabled
     @Test
     void findDataDetailsById() {
         //given

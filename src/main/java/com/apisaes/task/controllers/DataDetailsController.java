@@ -1,9 +1,10 @@
 package com.apisaes.task.controllers;
-
+import javax.validation.Valid;
 import com.apisaes.task.services.DataDetailsService;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -18,6 +19,13 @@ public class DataDetailsController {
     public LocalDate currentTime(){
         LocalDate now = LocalDate.now();
         return now;
+    }
+
+    @ModelAttribute("defaultDataDetails")
+    public DataDetails defaultValue(){
+        DataDetails defaultDataDetails = dataDetailsService.findById("1");
+        System.out.println("DATE: " + defaultDataDetails.getData().getDateOfStart().toString());
+        return defaultDataDetails;
     }
 
     public DataDetailsController(DataDetailsService dataDetailsService) {
@@ -43,7 +51,10 @@ public class DataDetailsController {
     }
 
     @PostMapping("/new")
-    public String createDataDetails(@ModelAttribute DataDetails dataDetails, Model model){
+    public String createDataDetails(@Valid DataDetails dataDetails, Model model, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "newDataDetails";
+        }
         dataDetailsService.saveDataDetails(dataDetails);
         return "redirect:/datadetails";
     }
