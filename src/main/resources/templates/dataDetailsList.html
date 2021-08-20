@@ -29,8 +29,8 @@
             <td th:text="${dataDetail.data.accountValue}">-</td>
             <td th:text="${dataDetail.data.exporter.referenceNumber}">-</td>
             <td th:text="${dataDetail.data.operation.ID}">-</td>
-            <td th:text="${dataDetail.data.operation.arrivalDateTime.toString()}">-</td>
-            <td th:text="${dataDetail.data.operation.acceptanceDate.toString()}">-</td>
+            <td th:text="${dataDetail.data.operation.arrivalDateTime?.toString()}">-</td>
+            <td th:text="${dataDetail.data.operation.acceptanceDate?.toString()}">-</td>
         </tr>
     </tbody>
 </table>

@@ -1,5 +1,8 @@
 package com.apisaes.task.controllers;
 import javax.validation.Valid;
+
+import com.apisaes.task.commands.v0.DataDetailsCommand;
+import com.apisaes.task.commands.v0.converters.DataDetailsConverter;
 import com.apisaes.task.services.DataDetailsService;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Controller;
@@ -14,22 +17,11 @@ import java.time.LocalDate;
 public class DataDetailsController {
 
     private final DataDetailsService dataDetailsService;
-
-    @ModelAttribute("now")
-    public LocalDate currentTime(){
-        LocalDate now = LocalDate.now();
-        return now;
-    }
-
-    @ModelAttribute("defaultDataDetails")
-    public DataDetails defaultValue(){
-        DataDetails defaultDataDetails = dataDetailsService.findById("1");
-        System.out.println("DATE: " + defaultDataDetails.getData().getDateOfStart().toString());
-        return defaultDataDetails;
-    }
+    private DataDetailsConverter dataDetailsConverter;
 
     public DataDetailsController(DataDetailsService dataDetailsService) {
         this.dataDetailsService = dataDetailsService;
+        this.dataDetailsConverter = new DataDetailsConverter();
     }
 
     @GetMapping({"", "/", "list"})
@@ -46,15 +38,16 @@ public class DataDetailsController {
 
     @GetMapping("/new")
     public String getForm(Model model){
-        model.addAttribute(new DataDetails());
+        model.addAttribute(new DataDetailsCommand());
         return "newDataDetails";
     }
 
     @PostMapping("/new")
-    public String createDataDetails(@Valid DataDetails dataDetails, Model model, BindingResult bindingResult){
+    public String createDataDetails(@Valid DataDetailsCommand dataDetailsCommand, Model model, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return "newDataDetails";
         }
+        DataDetails dataDetails = dataDetailsConverter.convert(dataDetailsCommand);
         dataDetailsService.saveDataDetails(dataDetails);
         return "redirect:/datadetails";
     }
