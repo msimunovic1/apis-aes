@@ -14,11 +14,6 @@ public class DataDetailsController {
 
     private final DataDetailsService dataDetailsService;
 
-//    @GetMapping()
-//    public DataDetails getDataDetails() {
-//        return dataDetailsService.getAllDataDetails();
-//    }
-
     @GetMapping("/{id}")
     public ResponseEntity<DataDetails> getDataDetailsById(@PathVariable Long id) {
         return new ResponseEntity<>(dataDetailsService.getDataDetailsById(id), HttpStatus.OK);

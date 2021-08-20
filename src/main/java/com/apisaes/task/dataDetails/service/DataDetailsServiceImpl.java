@@ -11,8 +11,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Slf4j
 @Data
 @Service
@@ -20,11 +18,6 @@ public class DataDetailsServiceImpl implements DataDetailsService {
 
     private final DataDetailsRepository dataDetailsRepository;
     private final DataDetailsMapper dataDetailsMapper;
-
-    @Override
-    public List<DataDetails> getAllDataDetails() {
-        return null;
-    }
 
     @Override
     public DataDetails getDataDetailsById(Long id) {
