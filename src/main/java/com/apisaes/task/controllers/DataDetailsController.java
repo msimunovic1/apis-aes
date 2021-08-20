@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/datadetails")
@@ -43,8 +42,9 @@ public class DataDetailsController {
     }
 
     @PostMapping("/new")
-    public String createDataDetails(@Valid DataDetailsCommand dataDetailsCommand, Model model, BindingResult bindingResult){
+    public String createDataDetails(@Valid DataDetailsCommand dataDetailsCommand, BindingResult bindingResult, Model model){
         if (bindingResult.hasErrors()) {
+            model.addAttribute(dataDetailsCommand);
             return "newDataDetails";
         }
         DataDetails dataDetails = dataDetailsConverter.convert(dataDetailsCommand);

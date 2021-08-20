@@ -1,6 +1,9 @@
 package com.apisaes.task.commands.v0;
 
+import javax.validation.constraints.NotNull;
+
 public class DataDetailsCommand {
+    @NotNull
     private DataTypeCommand data;
 
     public DataDetailsCommand() {

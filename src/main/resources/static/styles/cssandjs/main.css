@@ -107,3 +107,7 @@ input[type=button], input[type=submit], input[type=reset] {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.error {
+    color: red;
+}

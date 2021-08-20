@@ -1,16 +1,55 @@
 package com.apisaes.task.commands.v0;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class OperationCommand {
+
+    @NotNull
+    @Pattern(
+            regexp = ".{1,11}",
+            message = "Number of characters must be between 1 and 11"
+    )
     private String id;
-    private String arrivalDateTime; //DateTimeType
+
+    @NotNull
+    @Pattern(
+            regexp = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?",
+            message = "Arrival date time must be in format YYYY-MM-DD'T'hh:mm:ss . For example 2020-07-04T08:12:48."
+    )
+    private String arrivalDateTime;
+
+    @NotNull
+    @Pattern(
+            regexp = "[0-9]{1}",
+            message = "Storing flag must contains a single number (1-9)"
+    )
     private String storingFlag;
+
+    @NotNull
+    @Pattern(
+            regexp = ".{1,5}",
+            message = "Type contains between 1 and 5 characters."
+    )
     private String type;
+
+    @NotNull
+    @Pattern(
+            regexp = ".{1,5}",
+            message = "Additional Type contains a single (case insensitive) letter."
+    )
     private String additionalType;
-    private String acceptanceDate; //DateType
+
+    @NotNull
+    @Pattern(
+            regexp = "\\d{4}-\\d{2}-\\d{2}(\\.\\d+)?",
+            message = "Date of start must be in YYYY-MM-DD format."
+    )
+    private String acceptanceDate;
 
     public String getId() {
         return id;
@@ -26,7 +65,8 @@ public class OperationCommand {
     }
 
     public void setArrivalDateTime(String arrivalDateTime) {
-        Pattern patternWithoutSeconds = Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(\\.\\d+)?");
+        java.util.regex.Pattern patternWithoutSeconds =
+                java.util.regex.Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(\\.\\d+)?");
         Matcher matcher = patternWithoutSeconds.matcher(arrivalDateTime);
         if (matcher.find()){
             arrivalDateTime = arrivalDateTime + ":00";

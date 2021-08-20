@@ -9,6 +9,13 @@
 <h1>Create DataDetails</h1>
 
 <form action="#" th:action="@{/datadetails/new}" th:object="${dataDetailsCommand}" method="post">
+    <div class="error" th:if="${#fields.hasAnyErrors()}">
+        <h3>ERRORS:</h3>
+        <ul th:each="err: ${#fields.allErrors()}">
+            <li th:text="${err}"></li>
+        </ul>
+    </div>
+
     <p>Date of Start:
         <input type="date"
                th:field="*{data.dateOfStart}"

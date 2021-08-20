@@ -38,7 +38,7 @@ public class DataTypeConverter implements Converter<DataType, DataTypeCommand> {
                             command.getDateOfStart()
                     )
             );
-            dataType.setAccountValue(BigDecimal.valueOf(command.getAccountValue()));
+            dataType.setAccountValue(command.getAccountValue());
             dataType.setExporter(
                     officeTypeConverter.convertToDomain(command.getExporter())
             );

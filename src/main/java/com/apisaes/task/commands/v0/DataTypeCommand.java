@@ -1,13 +1,23 @@
 package com.apisaes.task.commands.v0;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Pattern;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class DataTypeCommand {
     private OperationCommand operation;
     private OfficeTypeCommand origin;
     private OfficeTypeCommand destination;
+    @Pattern(
+            regexp = "\\d{4}-\\d{2}-\\d{2}(\\.\\d+)?",
+            message = "Date of start must be in YYYY-MM-DD format."
+    )
     private String dateOfStart; //DateType
-    private Long accountValue;
+    @DecimalMin(value = "0.0", inclusive = false)
+    @Digits(integer=9, fraction=2)
+    private BigDecimal accountValue;
     private OfficeTypeCommand exporter;
     private List<OfficeTypeCommand> visitingLocations;
 
@@ -46,11 +56,11 @@ public class DataTypeCommand {
         this.dateOfStart = dateOfStart;
     }
 
-    public Long getAccountValue() {
+    public BigDecimal getAccountValue() {
         return accountValue;
     }
 
-    public void setAccountValue(Long accountValue) {
+    public void setAccountValue(BigDecimal accountValue) {
         this.accountValue = accountValue;
     }
 
