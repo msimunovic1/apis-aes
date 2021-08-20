@@ -1,5 +1,6 @@
 package com.apisaes.task.dataDetails.service;
 
+import com.apisaes.task.api.exception.NotFoundException;
 import com.apisaes.task.dataDetails.dto.DataDetailsDTO;
 import com.apisaes.task.dataDetails.entity.DataDetailsEntity;
 import com.apisaes.task.dataDetails.mapper.DataDetailsMapper;
@@ -26,8 +27,13 @@ public class DataDetailsServiceImpl implements DataDetailsService {
     }
 
     @Override
-    public DataDetails getDataDetailsById() {
-        return null;
+    public DataDetails getDataDetailsById(Long id) {
+        DataDetailsEntity dataDetailsEntity = dataDetailsRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Data details with id " + id + " not found"));
+
+        DataDetailsDTO dataDetailsDTO = (DataDetailsDTO) Serializer.deserialize(dataDetailsEntity.getDataDetailsBytes());
+
+        return dataDetailsMapper.mapDTOToDataDetails(dataDetailsDTO);
     }
 
     @Override

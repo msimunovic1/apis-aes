@@ -7,7 +7,7 @@ import java.util.List;
 public interface DataDetailsService {
 
     List<DataDetails> getAllDataDetails();
-    DataDetails getDataDetailsById();
+    DataDetails getDataDetailsById(Long id);
     DataDetails saveDataDetails(DataDetails dataDetails);
 
 }

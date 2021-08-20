@@ -19,8 +19,13 @@ public class DataDetailsController {
 //        return dataDetailsService.getAllDataDetails();
 //    }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DataDetails> getDataDetailsById(@PathVariable Long id) {
+        return new ResponseEntity<>(dataDetailsService.getDataDetailsById(id), HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<DataDetails> saveDataDetails(@RequestBody DataDetails dataDetails) {
-        return new ResponseEntity<>(dataDetailsService.saveDataDetails(dataDetails), HttpStatus.OK);
+        return new ResponseEntity<>(dataDetailsService.saveDataDetails(dataDetails), HttpStatus.CREATED);
     }
 }

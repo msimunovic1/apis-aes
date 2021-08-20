@@ -12,5 +12,5 @@ DROP TABLE IF EXISTS data_details;
 
 CREATE TABLE data_details(
     id INT PRIMARY KEY NOT NULL,
-    data_details_xml BLOB
+    data_details_bytes BLOB
 );
