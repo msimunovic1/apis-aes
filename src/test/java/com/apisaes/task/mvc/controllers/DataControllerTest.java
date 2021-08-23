@@ -77,7 +77,6 @@ class DataControllerTest {
         assertEquals(2, listInController.size());
     }
 
-    @Disabled
     @Test
     void findDataDetailsById() {
         //given
