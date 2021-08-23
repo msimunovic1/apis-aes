@@ -16,7 +16,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 
 @Repository
-public class DataDetailsRepository {
+public class DataDetailsRepositoryDeprecated {
 
     private static Long idCounter = 1L;
     private static final Map<String, DataDetails> dataDetailsMap = new HashMap<>();

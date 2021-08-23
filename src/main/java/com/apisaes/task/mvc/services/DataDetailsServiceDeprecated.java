@@ -4,7 +4,7 @@ import hr.aaa.test.v0.datadetails.DataDetails;
 
 import java.util.List;
 
-public interface DataDetailsService {
+public interface DataDetailsServiceDeprecated {
     List<DataDetails> findAllDataDetails();
 
     DataDetails findById(String id);

@@ -1,16 +1,16 @@
 package com.apisaes.task.mvc.services;
 
-import com.apisaes.task.mvc.repository.DataDetailsRepository;
+import com.apisaes.task.mvc.repository.DataDetailsRepositoryDeprecated;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class DataDetailsServiceImpl implements DataDetailsService {
+public class DataDetailsServiceDeprecatedImpl implements DataDetailsServiceDeprecated {
 
-    private final DataDetailsRepository dataDetailsRepository;
+    private final DataDetailsRepositoryDeprecated dataDetailsRepository;
 
-    public DataDetailsServiceImpl(DataDetailsRepository dataDetailsRepository) {
+    public DataDetailsServiceDeprecatedImpl(DataDetailsRepositoryDeprecated dataDetailsRepository) {
         this.dataDetailsRepository = dataDetailsRepository;
     }
 

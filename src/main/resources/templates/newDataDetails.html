@@ -8,7 +8,7 @@
 
 <h1>Create DataDetails</h1>
 
-<form action="#" th:action="@{/datadetails/new}" th:object="${dataDetailsCommand}" method="post">
+<form action="#" th:action="@{/mvc/data/new}" th:object="${dataDetailsCommand}" method="post">
     <div class="error" th:if="${#fields.hasAnyErrors()}">
         <h3>ERRORS:</h3>
         <ul th:each="err: ${#fields.allErrors()}">

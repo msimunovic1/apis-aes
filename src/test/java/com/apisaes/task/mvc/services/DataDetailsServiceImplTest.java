@@ -1,6 +1,6 @@
 package com.apisaes.task.mvc.services;
 
-import com.apisaes.task.mvc.repository.DataDetailsRepository;
+import com.apisaes.task.mvc.repository.DataDetailsRepositoryDeprecated;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,14 +16,14 @@ import static org.mockito.Mockito.*;
 class DataDetailsServiceImplTest {
 
     @Mock
-    DataDetailsRepository dataDetailsRepository;
+    DataDetailsRepositoryDeprecated dataDetailsRepository;
 
-    DataDetailsService dataDetailsService;
+    DataDetailsServiceDeprecated dataDetailsService;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        dataDetailsService = new DataDetailsServiceImpl(dataDetailsRepository);
+        dataDetailsService = new DataDetailsServiceDeprecatedImpl(dataDetailsRepository);
     }
 
     @Test

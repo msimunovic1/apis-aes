@@ -1,6 +1,6 @@
 package com.apisaes.task.mvc.controllers;
 
-import com.apisaes.task.mvc.services.DataDetailsService;
+import com.apisaes.task.mvc.services.DataDetailsServiceDeprecated;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -28,18 +28,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class DataDetailsControllerTest {
 
     @Mock
-    DataDetailsService dataDetailsService;
+    DataDetailsServiceDeprecated dataDetailsService;
 
     @Mock
     Model model;
 
-    DataDetailsController controller;
+    DataController controller;
 
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        controller = new DataDetailsController(dataDetailsService);
+        controller = new DataController(dataDetailsService);
     }
 
     @Disabled

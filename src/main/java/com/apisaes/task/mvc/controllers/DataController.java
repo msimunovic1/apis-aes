@@ -3,7 +3,7 @@ import javax.validation.Valid;
 
 import com.apisaes.task.mvc.commands.DataDetailsCommand;
 import com.apisaes.task.mvc.converters.DataDetailsConverter;
-import com.apisaes.task.mvc.services.DataDetailsService;
+import com.apisaes.task.mvc.services.DataDetailsServiceDeprecated;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequestMapping("/datadetails")
-public class DataDetailsController {
+@RequestMapping("/mvc/data")
+public class DataController {
 
-    private final DataDetailsService dataDetailsService;
+    private final DataDetailsServiceDeprecated dataDetailsService;
     private DataDetailsConverter dataDetailsConverter;
 
-    public DataDetailsController(DataDetailsService dataDetailsService) {
+    public DataController(DataDetailsServiceDeprecated dataDetailsService) {
         this.dataDetailsService = dataDetailsService;
         this.dataDetailsConverter = new DataDetailsConverter();
     }
@@ -49,6 +49,6 @@ public class DataDetailsController {
         }
         DataDetails dataDetails = dataDetailsConverter.convert(dataDetailsCommand);
         dataDetailsService.saveDataDetails(dataDetails);
-        return "redirect:/datadetails";
+        return "redirect:/mvc/data";
     }
 }
