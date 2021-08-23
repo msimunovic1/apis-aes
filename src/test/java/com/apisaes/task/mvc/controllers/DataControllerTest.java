@@ -1,6 +1,6 @@
 package com.apisaes.task.mvc.controllers;
 
-import com.apisaes.task.mvc.services.DataDetailsServiceDeprecated;
+import com.apisaes.task.dataDetails.service.DataDetailsService;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -25,10 +25,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @ExtendWith(MockitoExtension.class)
-class DataDetailsControllerTest {
+class DataControllerTest {
 
     @Mock
-    DataDetailsServiceDeprecated dataDetailsService;
+    DataDetailsService dataDetailsService;
 
     @Mock
     Model model;
@@ -42,22 +42,20 @@ class DataDetailsControllerTest {
         controller = new DataController(dataDetailsService);
     }
 
-    @Disabled
     @Test
     public void testMockMVC() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
-        mockMvc.perform(get("/datadetails"))
+        mockMvc.perform(get("/mvc/data"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("dataDetailsList"));
     }
 
 
-    @Disabled
     @Test
     void listDataDetails() {
         //given
-        when(dataDetailsService.findAllDataDetails()).thenReturn(
+        when(dataDetailsService.getAllDataDetails()).thenReturn(
                 Arrays.asList(new DataDetails(), new DataDetails())
         );
 
@@ -69,7 +67,7 @@ class DataDetailsControllerTest {
 
         //then
         assertEquals("dataDetailsList", viewName);
-        verify(dataDetailsService, times(1)).findAllDataDetails();
+        verify(dataDetailsService, times(1)).getAllDataDetails();
         verify(model, times(1)).addAttribute(
                 eq("listDataDetails"),
                 argumentCaptor.capture()
@@ -83,7 +81,7 @@ class DataDetailsControllerTest {
     @Test
     void findDataDetailsById() {
         //given
-        when(dataDetailsService.findById(anyString())).thenReturn(
+        when(dataDetailsService.getDataDetailsById(anyLong())).thenReturn(
                 new DataDetails()
         );
 
@@ -95,7 +93,7 @@ class DataDetailsControllerTest {
 
         //then
         assertEquals("dataDetailsList", viewName);
-        verify(dataDetailsService, times(1)).findById("1");
+        verify(dataDetailsService, times(1)).getDataDetailsById(1L);
         verify(model, times(1)).addAttribute(
                 eq("listDataDetails"),
                 argumentCaptor.capture()
@@ -103,17 +101,5 @@ class DataDetailsControllerTest {
 
         DataDetails dataInController = argumentCaptor.getValue();
         assertNotNull(dataInController);
-    }
-
-    @Disabled
-    @Test
-    void getForm() {
-
-    }
-
-    @Disabled
-    @Test
-    void createDataDetails() {
-
     }
 }

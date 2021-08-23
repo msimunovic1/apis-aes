@@ -13,7 +13,6 @@ public class OperationConverter implements Converter<Operation, OperationCommand
         try {
             operation = new Operation();
             operation.setID(command.getId());
-            System.out.println("ARRIVAL DATE TIME: " + command.getArrivalDateTime());
             operation.setArrivalDateTime(DatatypeFactory
                     .newInstance()
                     .newXMLGregorianCalendar(

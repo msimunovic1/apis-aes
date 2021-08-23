@@ -1,9 +1,9 @@
 package com.apisaes.task.mvc.controllers;
 import javax.validation.Valid;
 
+import com.apisaes.task.dataDetails.service.DataDetailsService;
 import com.apisaes.task.mvc.commands.DataDetailsCommand;
 import com.apisaes.task.mvc.converters.DataDetailsConverter;
-import com.apisaes.task.mvc.services.DataDetailsServiceDeprecated;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,23 +15,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/mvc/data")
 public class DataController {
 
-    private final DataDetailsServiceDeprecated dataDetailsService;
+    private final DataDetailsService dataDetailsService;
     private DataDetailsConverter dataDetailsConverter;
 
-    public DataController(DataDetailsServiceDeprecated dataDetailsService) {
+    public DataController(DataDetailsService dataDetailsService) {
         this.dataDetailsService = dataDetailsService;
         this.dataDetailsConverter = new DataDetailsConverter();
     }
 
     @GetMapping({"", "/", "list"})
     public String listDataDetails(Model model){
-        model.addAttribute("listDataDetails", dataDetailsService.findAllDataDetails());
+        model.addAttribute("listDataDetails", dataDetailsService.getAllDataDetails());
         return "dataDetailsList";
     }
 
     @GetMapping({"/{id}"})
     public String findDataDetailsById(Model model, @PathVariable String id){
-        model.addAttribute("listDataDetails", dataDetailsService.findById(id));
+        model.addAttribute("listDataDetails", dataDetailsService.getDataDetailsById(Long.valueOf(id)));
         return "dataDetailsList";
     }
 

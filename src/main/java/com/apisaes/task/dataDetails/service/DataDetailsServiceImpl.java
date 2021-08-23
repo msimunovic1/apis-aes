@@ -12,6 +12,9 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Data
 @Service
@@ -47,6 +50,19 @@ public class DataDetailsServiceImpl implements DataDetailsService {
 
         // transform DataDetailsDTO back to DataDetails
         return dataDetailsMapper.mapDTOToDataDetails(dataDetailsDTO);
+    }
+
+    @Override
+    public List<DataDetails> getAllDataDetails() {
+        List<DataDetailsEntity> dataDetailsEntities = dataDetailsRepository.findAll();
+        List<DataDetails> dataDetailsList = new ArrayList<>();
+
+        dataDetailsEntities.forEach(dd ->{
+            DataDetailsDTO dataDetailsDTO = (DataDetailsDTO) Serializer.deserialize(dd.getDataDetailsBytes());
+            dataDetailsList.add(dataDetailsMapper.mapDTOToDataDetails(dataDetailsDTO));
+        });
+
+        return dataDetailsList;
     }
 
 }
