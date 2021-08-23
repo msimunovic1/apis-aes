@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>New DataDetails</title>
+</head>
+<body>
+
+<h1>Create DataDetails</h1>
+
+<form action="#" th:action="@{/mvc/data/new}" th:object="${dataDetailsCommand}" method="post">
+    <div class="error" th:if="${#fields.hasAnyErrors()}">
+        <h3>ERRORS:</h3>
+        <ul th:each="err: ${#fields.allErrors()}">
+            <li th:text="${err}"></li>
+        </ul>
+    </div>
+
+    <p>Date of Start:
+        <input type="date"
+               th:field="*{data.dateOfStart}"
+        /></p>
+    <p>Account Value:
+        <input type="text"
+               th:field="*{data.accountValue}"/></p>
+    <h3>Operation</h3>
+
+    <p>ID:
+        <input type="text"
+               th:field="*{data.operation.id}"/></p>
+
+    <p>Arrival Date:
+        <input type="datetime-local"
+               th:field="*{data.operation.arrivalDateTime}"/></p>
+
+    <p>Acceptance Date:
+        <input type="date"
+               th:field="*{data.operation.acceptanceDate}"
+        />
+    </p>
+    <p>Storing Flag:
+        <input type="text"
+               th:field="*{data.operation.storingFlag}"/></p>
+    <p>Type:
+        <input type="text"
+               th:field="*{data.operation.type}"/></p>
+    <p>Additional Type:
+        <input type="text"
+               th:field="*{data.operation.additionalType}"/></p>
+
+    <h3>Origin</h3>
+    <p>Reference number:
+        <input type="text"
+               th:field="*{data.origin.referenceNumber}"/></p>
+    <h3>Destination</h3>
+    <p>Reference number:
+        <input type="text"
+               th:field="*{data.destination.referenceNumber}"/></p>
+    <h3>Exporter</h3>
+    <p>Reference number:
+        <input type="text"
+               th:field="*{data.exporter.referenceNumber}"/></p>
+    <p>
+        <input type="submit" value="Create"/>
+    </p>
+</form>
+</body>
+</html>

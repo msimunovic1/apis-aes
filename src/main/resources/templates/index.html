@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body})}">>
+<head>
+    <meta charset="UTF-8">
+    <title>APIS AES Task</title>
+</head>
+<body>
+<h1>APIS AES Task</h1>
+
+<p>Na primjeru dane XSD sheme - kreirati primjer XML poruke.</p>
+
+<p>Razvoj mini PoC aplikacije. Za "POC app" potrebno je sljedeće:</p>
+
+<ul>
+    <li>generira java model [via JAXB] iz te sheme</li>
+    <li>napraviti neki receptor [REST] preko kojeg se moze poslati XML</li>
+    <li>da generira java objekt iz tog xml-a</li>
+    <li>thymeleaf simple prikaz primjera jednog takvog objekta [hardcoded]</li>
+    <li>thymeleaf input i submit forme [nesto jednostavno, input datuma/stringa/broja]</li>
+    <li>osnovna validacija takvog polja [datum u buducnosti, ne predugacki string, ne empty broj]</li>
+    <li>taj objekt preslikati u model koji je jaxb kreirao [tih par iz inputa, ostalo sto je opcionalno hardkodirati]</li>
+    <li>kreirati XML tog objekta, vratiti ga nazad kao response tog submita</li>
+</ul>
+</body>
+</html>

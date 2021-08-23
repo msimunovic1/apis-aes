@@ -8,5 +8,5 @@ public interface DataDetailsService {
 
     DataDetails getDataDetailsById(Long id);
     DataDetails saveDataDetails(DataDetails dataDetails);
-
+    List<DataDetails> getAllDataDetails();
 }
