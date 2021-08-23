@@ -1,14 +1,10 @@
-package com.apisaes.task.commands.v0.converters;
+package com.apisaes.task.mvc.converters;
 
-import com.apisaes.task.commands.Converter;
-import com.apisaes.task.commands.v0.OperationCommand;
+import com.apisaes.task.mvc.commands.OperationCommand;
 import hr.aaa.test.v0.datadetails.Operation;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class OperationConverter implements Converter<Operation, OperationCommand> {
     @Override

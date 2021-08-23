@@ -1,7 +1,6 @@
-package com.apisaes.task.commands.v0.converters;
+package com.apisaes.task.mvc.converters;
 
-import com.apisaes.task.commands.Converter;
-import com.apisaes.task.commands.v0.OfficeTypeCommand;
+import com.apisaes.task.mvc.commands.OfficeTypeCommand;
 import hr.aaa.test.v0.datadetails.OfficeType;
 
 public class OfficeTypeConverter implements Converter<OfficeType, OfficeTypeCommand> {

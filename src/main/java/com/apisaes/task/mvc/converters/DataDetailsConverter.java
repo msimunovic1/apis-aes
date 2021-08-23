@@ -1,6 +1,6 @@
-package com.apisaes.task.commands.v0.converters;
+package com.apisaes.task.mvc.converters;
 
-import com.apisaes.task.commands.v0.DataDetailsCommand;
+import com.apisaes.task.mvc.commands.DataDetailsCommand;
 import hr.aaa.test.v0.datadetails.DataDetails;
 
 public class DataDetailsConverter {

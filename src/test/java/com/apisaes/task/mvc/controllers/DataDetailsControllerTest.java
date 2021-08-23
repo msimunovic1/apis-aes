@@ -1,14 +1,12 @@
-package com.apisaes.task.controllers;
+package com.apisaes.task.mvc.controllers;
 
-import com.apisaes.task.repository.DataDetailsRepository;
-import com.apisaes.task.services.DataDetailsService;
+import com.apisaes.task.mvc.services.DataDetailsService;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;

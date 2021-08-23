@@ -1,4 +1,4 @@
-package com.apisaes.task.commands.v0;
+package com.apisaes.task.mvc.commands;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;

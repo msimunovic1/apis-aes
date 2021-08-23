@@ -1,6 +1,6 @@
-package com.apisaes.task.services;
+package com.apisaes.task.mvc.services;
 
-import com.apisaes.task.repository.DataDetailsRepository;
+import com.apisaes.task.mvc.repository.DataDetailsRepository;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Service;
 

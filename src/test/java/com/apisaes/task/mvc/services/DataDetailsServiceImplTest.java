@@ -1,15 +1,12 @@
-package com.apisaes.task.services;
+package com.apisaes.task.mvc.services;
 
-import com.apisaes.task.repository.DataDetailsRepository;
+import com.apisaes.task.mvc.repository.DataDetailsRepository;
 import hr.aaa.test.v0.datadetails.DataDetails;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import javax.xml.crypto.Data;
 import java.util.Arrays;
 import java.util.List;
 

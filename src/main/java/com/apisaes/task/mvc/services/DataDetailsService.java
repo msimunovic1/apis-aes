@@ -1,4 +1,4 @@
-package com.apisaes.task.services;
+package com.apisaes.task.mvc.services;
 
 import hr.aaa.test.v0.datadetails.DataDetails;
 

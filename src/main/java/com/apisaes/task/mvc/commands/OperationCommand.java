@@ -1,10 +1,7 @@
-package com.apisaes.task.commands.v0;
+package com.apisaes.task.mvc.commands;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 
 public class OperationCommand {

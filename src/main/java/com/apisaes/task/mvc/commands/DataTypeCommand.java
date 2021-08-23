@@ -1,5 +1,6 @@
-package com.apisaes.task.commands.v0;
+package com.apisaes.task.mvc.commands;
 
+import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
@@ -7,8 +8,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class DataTypeCommand {
+    @Valid
     private OperationCommand operation;
+    @Valid
     private OfficeTypeCommand origin;
+    @Valid
     private OfficeTypeCommand destination;
     @Pattern(
             regexp = "\\d{4}-\\d{2}-\\d{2}(\\.\\d+)?",
@@ -18,7 +22,9 @@ public class DataTypeCommand {
     @DecimalMin(value = "0.0", inclusive = false)
     @Digits(integer=9, fraction=2)
     private BigDecimal accountValue;
+    @Valid
     private OfficeTypeCommand exporter;
+    @Valid
     private List<OfficeTypeCommand> visitingLocations;
 
     public DataTypeCommand() {

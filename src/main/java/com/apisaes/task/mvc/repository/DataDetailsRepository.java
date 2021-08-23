@@ -1,6 +1,4 @@
-package com.apisaes.task.repository;
-
-import org.springframework.stereotype.Component;
+package com.apisaes.task.mvc.repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

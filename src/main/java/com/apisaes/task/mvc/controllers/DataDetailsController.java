@@ -1,9 +1,9 @@
-package com.apisaes.task.controllers;
+package com.apisaes.task.mvc.controllers;
 import javax.validation.Valid;
 
-import com.apisaes.task.commands.v0.DataDetailsCommand;
-import com.apisaes.task.commands.v0.converters.DataDetailsConverter;
-import com.apisaes.task.services.DataDetailsService;
+import com.apisaes.task.mvc.commands.DataDetailsCommand;
+import com.apisaes.task.mvc.converters.DataDetailsConverter;
+import com.apisaes.task.mvc.services.DataDetailsService;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
