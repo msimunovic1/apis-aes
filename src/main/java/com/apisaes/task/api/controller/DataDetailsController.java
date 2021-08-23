@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/dataDetails")
+@RequestMapping("/api/dataDetails")
 public class DataDetailsController {
 
     private final DataDetailsService dataDetailsService;
