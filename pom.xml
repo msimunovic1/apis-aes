@@ -81,7 +81,7 @@
 				</executions>
 				<configuration>
 					<sources>
-						<source>${project.basedir}/src/main/resources/schema/dataDetails.xsd</source>
+						<source>${project.basedir}/src/main/resources/schema</source>
 					</sources>
 				</configuration>
 			</plugin>

@@ -5,6 +5,7 @@ import com.apisaes.task.dataDetails.dto.DataDetailsDTO;
 import com.apisaes.task.dataDetails.entity.DataDetailsEntity;
 import com.apisaes.task.dataDetails.mapper.DataDetailsMapper;
 import com.apisaes.task.dataDetails.repository.DataDetailsRepository;
+import com.apisaes.task.util.SchemaValidation;
 import com.apisaes.task.util.Serializer;
 import hr.aaa.test.v0.datadetails.DataDetails;
 import lombok.Data;
@@ -31,6 +32,8 @@ public class DataDetailsServiceImpl implements DataDetailsService {
 
     @Override
     public DataDetails saveDataDetails(DataDetails dataDetails) {
+        // validate input fields
+        SchemaValidation.validateXmlSchema(dataDetails);
 
         // transform DataDetails to DataDetailsDTO and serialize to byte[]
         byte[] dataDetailsBytes = Serializer.serialize(dataDetailsMapper.mapDataDetailsToDTO(dataDetails));
