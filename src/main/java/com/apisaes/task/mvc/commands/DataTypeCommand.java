@@ -1,5 +1,10 @@
 package com.apisaes.task.mvc.commands;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
@@ -7,6 +12,10 @@ import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class DataTypeCommand {
     @Valid
     private OperationCommand operation;
@@ -26,63 +35,4 @@ public class DataTypeCommand {
     private OfficeTypeCommand exporter;
     @Valid
     private List<OfficeTypeCommand> visitingLocations;
-
-    public DataTypeCommand() {
-    }
-
-    public OperationCommand getOperation() {
-        return operation;
-    }
-
-    public void setOperation(OperationCommand operation) {
-        this.operation = operation;
-    }
-
-    public OfficeTypeCommand getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(OfficeTypeCommand origin) {
-        this.origin = origin;
-    }
-
-    public OfficeTypeCommand getDestination() {
-        return destination;
-    }
-
-    public void setDestination(OfficeTypeCommand destination) {
-        this.destination = destination;
-    }
-
-    public String getDateOfStart() {
-        return dateOfStart;
-    }
-
-    public void setDateOfStart(String dateOfStart) {
-        this.dateOfStart = dateOfStart;
-    }
-
-    public BigDecimal getAccountValue() {
-        return accountValue;
-    }
-
-    public void setAccountValue(BigDecimal accountValue) {
-        this.accountValue = accountValue;
-    }
-
-    public OfficeTypeCommand getExporter() {
-        return exporter;
-    }
-
-    public void setExporter(OfficeTypeCommand exporter) {
-        this.exporter = exporter;
-    }
-
-    public List<OfficeTypeCommand> getVisitingLocations() {
-        return visitingLocations;
-    }
-
-    public void setVisitingLocations(List<OfficeTypeCommand> visitingLocations) {
-        this.visitingLocations = visitingLocations;
-    }
 }

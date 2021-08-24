@@ -26,7 +26,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        if (dataDetailsService.getAllDataDetails().size() < 1){
+        if (dataDetailsService.getAllDataDetails().isEmpty()){
             try {
                 loadData();
             } catch (DatatypeConfigurationException e) {
@@ -89,14 +89,14 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         dataType2.setAccountValue(BigDecimal.valueOf(2000));
 
         // DATA DETAILS
-        DataDetails DataDetails1 = new DataDetails();
-        DataDetails1.setData(dataType1);
+        DataDetails dataDetails1 = new DataDetails();
+        dataDetails1.setData(dataType1);
 
-        dataDetailsService.saveDataDetails(DataDetails1);
+        dataDetailsService.saveDataDetails(dataDetails1);
 
-        DataDetails DataDetails2 = new DataDetails();
-        DataDetails2.setData(dataType2);
+        DataDetails dataDetails2 = new DataDetails();
+        dataDetails2.setData(dataType2);
 
-        dataDetailsService.saveDataDetails(DataDetails2);
+        dataDetailsService.saveDataDetails(dataDetails2);
     }
 }

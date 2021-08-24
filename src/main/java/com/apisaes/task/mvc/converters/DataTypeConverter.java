@@ -2,9 +2,12 @@ package com.apisaes.task.mvc.converters;
 
 import com.apisaes.task.mvc.commands.DataTypeCommand;
 import hr.aaa.test.v0.datadetails.DataType;
+import hr.aaa.test.v0.datadetails.OfficeType;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataTypeConverter implements Converter<DataType, DataTypeCommand> {
 
@@ -40,7 +43,12 @@ public class DataTypeConverter implements Converter<DataType, DataTypeCommand> {
             dataType.setExporter(
                     officeTypeConverter.convertToDomain(command.getExporter())
             );
-            dataType.getVisitingLocations();
+            if (command.getVisitingLocations() != null){
+                List<OfficeType> visitingLocations = new ArrayList<>();
+                command.getVisitingLocations().forEach(officeTypeCommand ->
+                        visitingLocations.add(officeTypeConverter.convertToDomain(officeTypeCommand)));
+                dataType.getVisitingLocations().addAll(visitingLocations);
+            }
         } catch (DatatypeConfigurationException e) {
             e.printStackTrace();
         }
