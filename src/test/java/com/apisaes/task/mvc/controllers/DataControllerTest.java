@@ -1,20 +1,17 @@
 package com.apisaes.task.mvc.controllers;
 
-import com.apisaes.task.dataDetails.service.DataDetailsService;
-import com.apisaes.task.mvc.commands.DataDetailsCommand;
-import com.apisaes.task.mvc.commands.DataTypeCommand;
-import com.apisaes.task.mvc.commands.OfficeTypeCommand;
-import com.apisaes.task.mvc.commands.OperationCommand;
-import com.apisaes.task.mvc.converters.Converter;
-import com.apisaes.task.mvc.converters.DataDetailsConverter;
+import com.apisaes.task.controller.mvc.DataController;
+import com.apisaes.task.service.DataDetailsService;
+import com.apisaes.task.commands.DataDetailsCommand;
+import com.apisaes.task.commands.DataTypeCommand;
+import com.apisaes.task.commands.OfficeTypeCommand;
+import com.apisaes.task.commands.OperationCommand;
+import com.apisaes.task.commands.converters.DataDetailsConverter;
 import hr.aaa.test.v0.datadetails.DataDetails;
-import hr.aaa.test.v0.datadetails.Operation;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
