@@ -1,8 +1,17 @@
 package com.apisaes.task.mvc.commands;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class OfficeTypeCommand {
 
     @NotNull
@@ -11,15 +20,4 @@ public class OfficeTypeCommand {
             message = "Reference number must be in regex format '[A-Z]{2}[A-Z0-9]{6}', example: 'AA1AA100'"
     )
     private String referenceNumber;
-
-    public OfficeTypeCommand() {
-    }
-
-    public String getReferenceNumber() {
-        return referenceNumber;
-    }
-
-    public void setReferenceNumber(String referenceNumber) {
-        this.referenceNumber = referenceNumber;
-    }
 }
