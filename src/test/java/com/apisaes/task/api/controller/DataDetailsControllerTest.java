@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -114,7 +115,7 @@ public class DataDetailsControllerTest {
     @Test
     void saveDataDetails_thenReturns201() throws Exception {
 
-        when(dataDetailsService.saveDataDetails(dataDetails)).thenReturn(dataDetails);
+        when(dataDetailsService.saveDataDetails(any())).thenReturn(dataDetails);
 
         mockMvc.perform(post("/api/dataDetails")
                     .contentType(MediaType.APPLICATION_XML)
@@ -123,6 +124,18 @@ public class DataDetailsControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(content().string(XmlUtil.toString(dataDetails, DataDetails.class)))
                 .andDo(print());
+    }
+
+    @Test
+    void saveDataDetails_thenReturns405() throws Exception {
+
+        when(dataDetailsService.saveDataDetails(any())).thenThrow(MethodNotAllowedException.class);
+
+        mockMvc.perform(post("/api/dataDetails")
+                        .contentType(MediaType.APPLICATION_XML)
+                        .accept(MediaType.APPLICATION_XML)
+                        .content(XmlUtil.toString(dataDetails, DataDetails.class)))
+                .andExpect(status().isMethodNotAllowed());
     }
 
 }
